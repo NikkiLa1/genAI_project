@@ -345,13 +345,6 @@ max_tokens = 300
 ```
 genAI_project/
 ├── README.md
-├── src/                   
-│   ├── __init__.py
-│   ├── data_loader.py
-│   ├── retriever.py
-│   ├── baseline_rag.py
-│   ├── self_rag.py
-│   └── evaluation.py
 ├── dataset/                         
 │   ├── BioASQ-trainingDataset2b.json
 ├── notebooks/                        
@@ -360,6 +353,11 @@ genAI_project/
 │   ├── baseline_results.json
 │   ├── selfrag_results.json
 │   └── comparison_results.json
+├── assets/
+│   ├── architecture_comparison.png
+│   ├── bioasq_workflow.png
+│   ├── rouge_comparison.png
+│   └── qualitative_comparison.png
 ├── requirements.txt   
 └── .gitignore                          
 
