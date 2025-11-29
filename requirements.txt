@@ -1,0 +1,29 @@
+# Self-RAG Biomedical QA - Python Dependencies
+# Install all packages: pip install -r requirements.txt
+
+# Core OpenAI API
+openai==2.8.1
+
+# Sentence Transformers for embeddings
+sentence-transformers==5.1.2
+
+# FAISS for vector similarity search
+faiss-cpu==1.13.0
+
+# ROUGE metrics for evaluation
+rouge-score==0.1.2
+
+# Data processing
+numpy==2.0.2
+pandas==2.2.2
+
+# Progress bars
+tqdm==4.67.1
+
+# Jupyter notebook support (if using notebooks)
+jupyter==5.9.1
+ipykernel==7.34.0
+
+# Visualization (for generating figures)
+matplotlib==3.10.0
+
