@@ -63,11 +63,16 @@ Question → [FAISS Retrieval] → Context → [GPT-3.5] → Initial Answer
     ↓
 [Revision] → Final Answer
 ```
+<img width="1589" height="812" alt="image" src="https://github.com/user-attachments/assets/3c1daf5c-44f9-417b-bbb6-ddf2c2db29e2" />
+
+
+*Figure 1: Side-by-side comparison of Baseline RAG and Self-RAG pipelines*
 
 **Key Components:**
 - **Embedding:** sentence-transformers/all-MiniLM-L6-v2 (384-dim)
 - **Retrieval:** FAISS IndexFlatIP with cosine similarity (top-3 docs)
 - **Generation:** OpenAI GPT-3.5-turbo (temperature=0.1, max_tokens=300)
+
 
 ### 2.3 Dataset
 
@@ -78,8 +83,7 @@ Question → [FAISS Retrieval] → Context → [GPT-3.5] → Initial Answer
 - 2,480 unique PubMed snippets total
 
 <img width="1071" height="286" alt="image" src="https://github.com/user-attachments/assets/d9d6487d-c86e-46c5-baf2-4bedb7435989" />
-
-*Figure 1: BioASQ Challenge Task B workflow. Our project focuses on the "Challenge Task B" phase, using participant systems to generate answers from biomedical questions and PubMed context.*
+*Figure 2: BioASQ Challenge Task B workflow. Our project focuses on the "Challenge Task B" phase, using participant systems to generate answers from biomedical questions and PubMed context.*
 
 ### 2.4 Implementation
 
@@ -104,30 +108,32 @@ Question → [FAISS Retrieval] → Context → [GPT-3.5] → Initial Answer
 | **Partial Match** | 2.26% | 1.61% | -28.8% |
 | **Cost/Question** | $0.00063 | $0.00063 | +0% |
 
+**Formula:** ((New - Old) / Old) × 100
+
+<img width="1189" height="660" alt="image" src="https://github.com/user-attachments/assets/a156d8ee-d5ad-404e-a5e5-687c4c9cb440" />
+
+*Figure 3: ROUGE score comparison across all metrics.*
+
 **Key Finding:** Baseline RAG outperformed Self-RAG on all ROUGE metrics despite using identical retrieval and generation models.
 
 ### 3.2 Analysis: Why Self-RAG Scored Lower
 
 **Hypothesis: Verbosity vs. Conciseness Trade-off**
 
-Example:
+Example from BioASQ dataset:
 ```
-Question: "What is apoptosis?"
+Question: "Is Rheumatoid Arthritis more common in men or women?"
 
-Gold (15 words): "Apoptosis is a form of programmed cell death 
-that occurs in multicellular organisms."
+Gold (27 words): "Disease patterns in RA vary between the sexes; the condition is more commonly seen in women,
+who exhibit a more aggressive disease and a poorer long-term outcome."
 
-Baseline (23 words): "Apoptosis is a form of programmed cell death 
-that occurs in multicellular organisms. It is characterized by 
-distinct morphological characteristics..."
-ROUGE-L: 0.75
+Baseline (8 words): "Rheumatoid Arthritis is more commonly seen in women."
+ROUGE-L: High (concise match)
 
-Self-RAG (61 words): "Apoptosis is a form of programmed cell death 
-characterized by distinct morphological features... It contributes 
-to development, tissue homeostasis, and immune regulation. 
-Mitochondria play a crucial role... mechanisms include caspase 
-activation, DNA fragmentation, and membrane blebbing."
-ROUGE-L: 0.42
+Self-RAG (45 words): "Rheumatoid Arthritis is more commonly seen in women, as evidenced by studies showing a higher
+prevalence in females compared to males. Specifically, research indicates that women exhibit a more aggressive
+disease course and a poorer long-term outcome in Rheumatoid Arthritis compared to men."
+ROUGE-L: Lower (more verbose but more informative)
 ```
 
 **Interpretation:**
