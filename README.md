@@ -347,7 +347,7 @@ genAI_project/
 ├── README.md
 ├── dataset/                         
 │   ├── BioASQ-trainingDataset2b.json
-├── notebooks/                        
+├── notebook/                        
 │   └── Self_RAG_Biomedical_QA.ipynb
 ├── results/                         
 │   ├── baseline_results.json
