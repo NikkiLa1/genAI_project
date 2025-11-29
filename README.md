@@ -221,6 +221,11 @@ Weaknesses:
 
 ### 5.1 Key Findings
 
+
+<img width="1370" height="1100" alt="image" src="https://github.com/user-attachments/assets/8a5190d6-b942-4167-b127-05e2361c068b" />
+
+*Figure 4: Qualitative trade-off analysis comparing Baseline RAG and Self-RAG*
+
 1. **Self-RAG underperforms on ROUGE but provides better information**
    - Lower scores reflect more comprehensive, detailed answers
    - ROUGE's brevity bias doesn't align with biomedical answer quality
@@ -232,6 +237,7 @@ Weaknesses:
 3. **Interpretability is valuable**
    - Reflection provides transparent reasoning
    - Enables error analysis and trust-building
+
 
 ### 5.2 Limitations
 
@@ -337,16 +343,24 @@ max_tokens = 300
 
 ### C. Code Structure
 ```
-self-rag-bioasq/
-├── src/
+genAI_project/
+├── README.md
+├── src/                   
+│   ├── __init__.py
 │   ├── data_loader.py
 │   ├── retriever.py
 │   ├── baseline_rag.py
 │   ├── self_rag.py
 │   └── evaluation.py
-├── results/
+├── dataset/                         
+│   ├── BioASQ-trainingDataset2b.json
+├── notebooks/                        
+│   └── Self_RAG_Biomedical_QA.ipynb
+├── results/                         
 │   ├── baseline_results.json
 │   ├── selfrag_results.json
 │   └── comparison_results.json
-└── README.md
+├── requirements.txt   
+└── .gitignore                          
+
 ```
