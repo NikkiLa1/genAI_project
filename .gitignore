@@ -1,0 +1,16 @@
+# Dataset - too large for GitHub
+dataset/
+BioASQ-trainingDataset2b.json
+
+# API Keys - NEVER upload
+.env
+*.key
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
