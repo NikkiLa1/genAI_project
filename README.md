@@ -21,7 +21,7 @@ Large language models (LLMs) frequently produce confident but factually incorrec
 
 ### Approach
 
-We implement Self-RAG, which extends baseline RAG with:
+Implement Self-RAG, which extends baseline RAG with:
 - **Reflection:** The model critiques its initial answer for factual accuracy, completeness, evidence grounding, and hallucinations
 - **Revision:** The model generates an improved answer based on the critique
 
