@@ -1,0 +1,21 @@
+{
+  "baseline_metrics": {
+    "system": "Baseline RAG",
+    "num_questions": 310,
+    "exact_match": 0.0,
+    "partial_match": 0.025806451612903226,
+    "rouge1": 0.3390733216966974,
+    "rouge2": 0.15950413531563237,
+    "rougeL": 0.26617695536453717
+  },
+  "selfrag_metrics": {
+    "system": "Self-RAG",
+    "num_questions": 310,
+    "exact_match": 0.0,
+    "partial_match": 0.01935483870967742,
+    "rouge1": 0.28612621467744365,
+    "rouge2": 0.10596733524251177,
+    "rougeL": 0.19481071004030182
+  },
+  "num_questions": 310
+}
