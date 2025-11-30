@@ -82,6 +82,10 @@ Question → [FAISS Retrieval] → Context → [GPT-3.5] → Initial Answer
 - Includes gold answers and relevant snippets for each question
 - 2,480 unique PubMed snippets total
 
+**Evaluation Approach:**
+Uses a pre-trained models (no fine-tuning), so all 310 questions were used 
+for testing and comparison between Baseline RAG and Self-RAG systems.
+
 <img width="1071" height="286" alt="image" src="https://github.com/user-attachments/assets/d9d6487d-c86e-46c5-baf2-4bedb7435989" />
 
 
