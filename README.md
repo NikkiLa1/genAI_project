@@ -40,9 +40,9 @@ Implement Self-RAG, which extends baseline RAG with:
 
 **Transformer Architecture:** Uses GPT-3.5-turbo, demonstrating practical application of pre-trained language models and self-attention mechanisms.
 
-**Retrieval-Augmented Generation:** Combines neural retrieval (dense vectors via FAISS) with language generation, implementing the retrieve-then-generate paradigm.
+**Retrieval-Augmented Generation:** Combines neural retrieval (dense vectors via FAISS) with language generation, implementing the retrieve-then-generate paradigm discussed in Lewis et al. (2020).
 
-**Hallucination Mitigation:** Self-reflection provides interpretable critique and multi-stage generation allows error correction.
+**Hallucination Mitigation:** Self-reflection provides interpretable critique and multi-stage generation allows error correction, addressing reliability concerns in generative AI.
 
 **Evaluation Methodology:** ROUGE metrics for automatic evaluation plus critical analysis of metric limitations in specialized domains.
 
@@ -83,7 +83,9 @@ Question → [FAISS Retrieval] → Context → [GPT-3.5] → Initial Answer
 - 2,480 unique PubMed snippets total
 
 <img width="1071" height="286" alt="image" src="https://github.com/user-attachments/assets/d9d6487d-c86e-46c5-baf2-4bedb7435989" />
-*Figure 2: BioASQ Challenge Task B workflow. Our project focuses on the "Challenge Task B" phase, using participant systems to generate answers from biomedical questions and PubMed context.*
+
+
+*Figure 2: BioASQ Challenge Task B workflow. Our project focuses on the "Challenge Task B" phase, using participant systems to generate answers from biomedical questions and PubMed context*
 
 ### 2.4 Implementation
 
@@ -91,6 +93,12 @@ Question → [FAISS Retrieval] → Context → [GPT-3.5] → Initial Answer
 - Same retrieval system and context for both approaches
 - Same LLM and generation settings
 - Only difference: presence/absence of reflection and revision
+
+### 2.5 Evaluation Metrics
+
+- **ROUGE-L:** Measures longest common subsequence overlap between generated and reference answers
+- **ROUGE-1:** Unigram overlap for lexical similarity
+- **ROUGE-2:** Bigram overlap for phrase-level matching
 
 **Budget:** $5.00 budget, $0.39 actual cost ($0.00126/question)
 
@@ -112,7 +120,7 @@ Question → [FAISS Retrieval] → Context → [GPT-3.5] → Initial Answer
 
 <img width="1189" height="660" alt="image" src="https://github.com/user-attachments/assets/a156d8ee-d5ad-404e-a5e5-687c4c9cb440" />
 
-*Figure 3: ROUGE score comparison across all metrics.*
+*Figure 3: ROUGE score comparison across all metrics*
 
 **Key Finding:** Baseline RAG outperformed Self-RAG on all ROUGE metrics despite using identical retrieval and generation models.
 
